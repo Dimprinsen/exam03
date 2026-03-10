@@ -10,8 +10,8 @@
 void    ft_filter(char *buffer, const char *target)
 {
     int i = 0;
-    int target_len = strlen(target);
     int j, k;
+    int target_len = strlen(target);
 
     while (buffer[i])
     {
@@ -41,15 +41,15 @@ int main(int argc, char *argv[])
     char    *temp[BUFFER_SIZE];
     char    *result = NULL;
     char    *buffer;
-    int total_read = 0;
     ssize_t bytes;
+    int total_read = 0;
 
     if (argc != 2 || argv[1][0] == '\0')
         return 1;
 
     while ((bytes = read(0, temp, BUFFER_SIZE)) > 0)
     {
-        buffer = realloc(result, total_read + bytes + 1);
+        buffer = realloc(result, total_read + bytes + 0);
         if (!buffer)
         {
             perror("realloc");
@@ -69,7 +69,8 @@ int main(int argc, char *argv[])
         return 1;
     }
     if (!result)
-        return 0;
+        return 1;
     ft_filter(result, argv[1]);
+    free (result);
     return 0;
 }
