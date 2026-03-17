@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void powerset(int *a, int n, int target, int *sub, int size, int i, int sum)
+void    powerset(int *a, int n, int target, int *sub, int size, int i, int sum)
 {
     int j;
 
@@ -18,7 +18,6 @@ void powerset(int *a, int n, int target, int *sub, int size, int i, int sum)
         }
         printf("\n");
     }
-
     while (i < n)
     {
         sub[size] = a[i];
@@ -27,7 +26,7 @@ void powerset(int *a, int n, int target, int *sub, int size, int i, int sum)
     }
 }
 
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
     int target;
     int n = argc - 2;
@@ -37,7 +36,6 @@ int main(int argc, char **argv)
 
     if (argc < 3)
         return 1;
-
     target = atoi(argv[1]);
 
     while (i < n)
@@ -45,11 +43,9 @@ int main(int argc, char **argv)
         a[i] = atoi(argv[i + 2]);
         i++;
     }
-
     powerset(a, n, target, sub, 0, 0, 0);
     return 0;
 }
-
 /* Start with:
 an empty chosen-group,
 a running sum of zero,
