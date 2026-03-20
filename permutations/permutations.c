@@ -65,8 +65,12 @@ int main(int argc, char **argv)
     char perm[n + 1];
     int used[n];
 
-    for (int i = 0; i < n; i++)
+    int i = 0;
+    while (i < n)
+    {
         used[i] = 0;
+        i++;
+    }
 
     solve(perm, used, str, 0, n);
 
