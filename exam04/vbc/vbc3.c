@@ -60,17 +60,16 @@ int expect(char **s, char c)
     return (0);
 }
 
-//...node *n(**s);
+node *parse_group(**s);
+node *parse_add(**s);
+node *parse_mult(**s);
 
-node    *parse_group(char *s);
-node    *parse_mult(char *s);
-node    *parse_add(char *s);
+//...
 
 node    *parse_expr(char *s)
 {
-    node   *ret = parse_add(&s);
-    if (!ret)
-        return NULL;
+    //...
+
     if (*s) 
     {
         destroy_tree(ret);
@@ -102,5 +101,4 @@ int main(int argc, char **argv)
         return (1);
     printf("%d\n", eval_tree(tree));
     destroy_tree(tree);
-    return 0;
 }
